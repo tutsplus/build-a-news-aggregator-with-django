@@ -1,0 +1,26 @@
+{% extends 'news/base.html' %}
+
+{% block content %}
+
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>News Feeds</h1>
+  </div>
+</div>
+
+<div class="container">
+  <a href="{% url 'feed_new' %}" class="btn btn-primary">New Feed</a>
+  <hr>
+  <ul>
+    {% for feed in feeds %}
+      <li><a href="{{feed.url}}">{{feed.title}}</a></li>
+    {% endfor %}
+  </ul>
+
+  <footer>
+    <p>&copy; 2015 Django News Aggregator</p>
+  </footer>
+</div> <!-- /container -->
+
+{% endblock %}
